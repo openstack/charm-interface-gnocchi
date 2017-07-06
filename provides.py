@@ -18,7 +18,7 @@ from charms.reactive import scopes
 
 
 class GnocchiProvides(RelationBase):
-    scope = scopes.UNIT
+    scope = scopes.GLOBAL
 
     @hook('{provides:gnocchi}-relation-{joined}')
     def joined(self):
