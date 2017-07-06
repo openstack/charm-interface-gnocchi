@@ -18,7 +18,7 @@ from charms.reactive import scopes
 
 
 class GnocchiProvides(RelationBase):
-    scope = scopes.GLOBAL
+    scope = scopes.UNIT
 
     @hook('{provides:gnocchi}-relation-{joined}')
     def joined(self):
@@ -29,4 +29,4 @@ class GnocchiProvides(RelationBase):
         self.remove_state('{relation_name}.connected')
 
     def set_gnocchi_url(self, url):
-        self.set_remote(gnocchi_url=url)
+        self.conversation().set_remote(gnocchi_url=url)
